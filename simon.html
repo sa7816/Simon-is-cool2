@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Why Simon Is Cool 🐶</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff3d6, #ffd6a5, #ffb4a2);
+    color: #3b2416;
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(90deg, #6b3515, #a95720, #6b3515);
+    color: white;
+    padding: 30px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 15px #0005;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav button {
+    background: #ffd166;
+    border: none;
+    padding: 12px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav button:hover {
+    transform: scale(1.1);
+    background: #fff;
+}
+
+section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero img {
+    width: 330px;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 10px solid white;
+    box-shadow: 0 10px 30px #0005;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero h2 {
+    font-size: 45px;
+    margin: 25px;
+}
+
+.bigButton {
+    font-size: 22px;
+    padding: 18px 30px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #7b3f00;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 10px #0004;
+}
+
+.bigButton:hover {
+    transform: scale(1.08);
+}
+
+.title {
+    font-size: 38px;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 15px #0003;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card h3 {
+    margin: 15px;
+    font-size: 24px;
+}
+
+.card button {
+    background: #ff9f1c;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card button:hover {
+    background: #ffbf69;
+}
+
+.optionBox {
+    background: #ffffffdd;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #0003;
+}
+
+.optionButton {
+    display: inline-block;
+    padding: 15px 22px;
+    margin: 8px;
+    border: 3px solid #7b3f00;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.optionButton:hover {
+    background: #ffd166;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.stat {
+    background: #6b3515;
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 40px;
+    color: #ffd166;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+#message {
+    font-size: 25px;
+    margin: 20px;
+    min-height: 40px;
+}
+
+footer {
+    background: #3b2416;
+    color: white;
+    padding: 40px;
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🐶 SIMON'S COOL WEBSITE 🐶</h1>
+    <p>The official website explaining why Simon is awesome!</p>
+
+    <nav>
+        <button onclick="go('home')">🏠 Home</button>
+        <button onclick="go('reasons')">⭐ Reasons</button>
+        <button onclick="go('gallery')">📸 Gallery</button>
+        <button onclick="go('stats')">📊 Stats</button>
+        <button onclick="go('games')">🎮 Games</button>
+        <button onclick="go('options')">⚙️ Options</button>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+
+    <img src="https://images.unsplash.com/photo-1612195583950-b8fd34c87093?auto=format&fit=crop&w=700&q=80">
+
+    <h2>Meet Simon 🐶</h2>
+
+    <p style="font-size:22px;">
+        Simon is a legendary dachshund.
+    </p>
+
+    <button class="bigButton" onclick="coolness()">
+        🔥 CHECK SIMON'S COOLNESS 🔥
+    </button>
+
+    <div id="message"></div>
+
+</section>
+
+<section id="reasons">
+
+<h2 class="title">⭐ Reasons Simon Is Cool ⭐</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🐾 Short Legs</h3>
+<p>Simon's short legs make him extremely cute and funny.</p>
+<button onclick="alert('SHORT LEGS = MAXIMUM CUTENESS! 🐾')">
+Why?
+</button>
+</div>
+
+<div class="card">
+<h3>😎 Cool Personality</h3>
+<p>Simon has legendary dachshund energy.</p>
+<button onclick="alert('Simon has +1000 coolness!')">
+Activate Coolness
+</button>
+</div>
+
+<div class="card">
+<h3>🍖 Snack Expert</h3>
+<p>Simon understands the importance of snacks.</p>
+<button onclick="alert('Simon has detected a snack! 👀')">
+Give Snack
+</button>
+</div>
+
+<div class="card">
+<h3>🎮 Gaming Buddy</h3>
+<p>Simon is the perfect gaming companion.</p>
+<button onclick="alert('SIMON HAS JOINED THE GAME! 🎮')">
+Invite Simon
+</button>
+</div>
+
+<div class="card">
+<h3>❤️ Best Dog</h3>
+<p>Simon is an awesome companion.</p>
+<button onclick="alert('❤️ SIMON IS AWESOME ❤️')">
+Confirm
+</button>
+</div>
+
+<div class="card">
+<h3>🏆 Legendary</h3>
+<p>There is only one Simon.</p>
+<button onclick="alert('LEGENDARY STATUS UNLOCKED! 🏆')">
+Unlock
+</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2 class="title">📸 Dachshund Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1612195583950-b8fd34c87093?auto=format&fit=crop&w=600&q=80">
+
+<img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=600&q=80">
+
+<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80">
+
+<img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80">
+
+</div>
+
+</section>
+
+<section id="stats">
+
+<h2 class="title">📊 Simon's Official Stats</h2>
+
+<div class="stats">
+
+<div class="stat">
+<strong>100%</strong>
+Coolness
+</div>
+
+<div class="stat">
+<strong>999</strong>
+Cuteness
+</div>
+
+<div class="stat">
+<strong>1000+</strong>
+Good Boy Points
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+Dachshund Energy
+</div>
+
+<div class="stat">
+<strong>10/10</strong>
+Dog Rating
+</div>
+
+<div class="stat">
+<strong>MAX</strong>
+Legend Status
+</div>
+
+</div>
+
+</section>
+
+<section id="games">
+
+<h2 class="title">🎮 Simon Games</h2>
+
+<div class="optionBox">
+
+<h2>Choose an option</h2>
+
+<button class="optionButton" onclick="game('bark')">
+🐶 Bark Simulator
+</button>
+
+<button class="optionButton" onclick="game('zoomies')">
+💨 Zoomies
+</button>
+
+<button class="optionButton" onclick="game('snack')">
+🍖 Snack Hunt
+</button>
+
+<button class="optionButton" onclick="game('sleep')">
+😴 Sleep Mode
+</button>
+
+<button class="optionButton" onclick="game('walk')">
+🌳 Walk Mode
+</button>
+
+<p id="gameResult"></p>
+
+</div>
+
+</section>
+
+<section id="options">
+
+<h2 class="title">⚙️ Simon Options</h2>
+
+<div class="optionBox">
+
+<h2>Choose Simon's mood</h2>
+
+<button class="optionButton" onclick="mood('😎 Cool Simon')">
+😎 Cool
+</button>
+
+<button class="optionButton" onclick="mood('😂 Funny Simon')">
+😂 Funny
+</button>
+
+<button class="optionButton" onclick="mood('😴 Sleepy Simon')">
+😴 Sleepy
+</button>
+
+<button class="optionButton" onclick="mood('🍖 Hungry Simon')">
+🍖 Hungry
+</button>
+
+<button class="optionButton" onclick="mood('⚡ Hyper Simon')">
+⚡ Hyper
+</button>
+
+<button class="optionButton" onclick="mood('❤️ Happy Simon')">
+❤️ Happy
+</button>
+
+<p id="moodResult"></p>
+
+</div>
+
+<div class="optionBox">
+
+<h2>🏆 Simon Achievement Menu</h2>
+
+<button class="optionButton" onclick="achievement('First Bark')">
+🐶 First Bark
+</button>
+
+<button class="optionButton" onclick="achievement('Ultimate Dachshund')">
+🏆 Ultimate Dachshund
+</button>
+
+<button class="optionButton" onclick="achievement('Snack Hunter')">
+🍖 Snack Hunter
+</button>
+
+<button class="optionButton" onclick="achievement('Professional Sleeper')">
+😴 Professional Sleeper
+</button>
+
+<button class="optionButton" onclick="achievement('Zoomie Master')">
+💨 Zoomie Master
+</button>
+
+<p id="achievementResult"></p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">🐾 Simon Rating Machine</h2>
+
+<div class="optionBox">
+
+<p style="font-size:25px;">
+How cool is Simon?
+</p>
+
+<button class="bigButton" onclick="rate(10)">
+10/10
+</button>
+
+<button class="bigButton" onclick="rate(100)">
+100/10
+</button>
+
+<button class="bigButton" onclick="rate(1000)">
+1000/10
+</button>
+
+<button class="bigButton" onclick="rate('∞')">
+∞/10
+</button>
+
+<p id="rating"></p>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>🐶 Simon's Official Website 🐶</h2>
+
+<p>Created for the world's coolest dachshund.</p>
+
+<p style="margin-top:15px;">
+© 2026 Simon Fan Club
+</p>
+
+</footer>
+
+<script>
+
+function go(section) {
+    document.getElementById(section).scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function coolness() {
+
+    const messages = [
+        "🔥 COOLNESS LEVEL: 999999!",
+        "😎 Simon is officially COOL!",
+        "🐶 SCIENTIFIC TEST RESULT: SIMON IS AWESOME!",
+        "🏆 SIMON HAS ACHIEVED LEGENDARY STATUS!",
+        "💯 100% COOL DOG DETECTED!"
+    ];
+
+    const random =
+        messages[Math.floor(Math.random() * messages.length)];
+
+    document.getElementById("message").innerText = random;
+}
+
+function game(type) {
+
+    let result = "";
+
+    if(type === "bark") {
+        result = "🐶 WOOF WOOF WOOF!!!";
+    }
+
+    if(type === "zoomies") {
+        result = "💨 SIMON IS RUNNING AT MAXIMUM SPEED!";
+    }
+
+    if(type === "snack") {
+        result = "🍖 SNACK FOUND! SIMON WINS!";
+    }
+
+    if(type === "sleep") {
+        result = "😴 Simon has entered sleep mode...";
+    }
+
+    if(type === "walk") {
+        result = "🌳 WALK STARTED! SIMON IS READY!";
+    }
+
+    document.getElementById("gameResult").innerText = result;
+}
+
+function mood(value) {
+    document.getElementById("moodResult").innerText =
+        "Simon is now: " + value;
+}
+
+function achievement(value) {
+    document.getElementById("achievementResult").innerText =
+        "🏆 Achievement unlocked: " + value + "!";
+}
+
+function rate(value) {
+    document.getElementById("rating").innerText =
+        "⭐ Simon's rating: " + value + " ⭐";
+}
+
+</script>
+
+</body>
+</html>
